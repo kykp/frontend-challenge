@@ -30,18 +30,6 @@ function App() {
     setData(newArray);
   };
 
-  console.log(favorite);
-  // const addCats = (object) => {
-  //   if (!favorite.some((alreadyFavorite) => alreadyFavorite.id === object.id)) {
-  //     setFavorite([...favorite, object]);
-  //   }
-  // };
-
-  // const deleteCats = (object) => {
-  //   const newArray = favorite.filter((items) => items.id !== object.id);
-  //   setFavorite(newArray);
-  // };
-
   useEffect(() => {
     async function fetchMyAPI() {
       let response = await fetch(local_url, {
@@ -69,11 +57,7 @@ function App() {
             path="/frontend-challenge"
             element={
               data.length ? (
-                <Gallery
-                  data={data}
-                  addCats={addCats}
-                  // deleteCats={deleteCats}
-                />
+                <Gallery data={data} addCats={addCats} />
               ) : (
                 <Preloader />
               )
@@ -81,13 +65,7 @@ function App() {
           />
           <Route
             path="/favourites"
-            element={
-              <Favourites
-                favorite={favorite}
-                addCats={addCats}
-                // deleteCats={deleteCats}
-              />
-            }
+            element={<Favourites favorite={favorite} addCats={addCats} />}
           />
         </Routes>
       </BrowserRouter>
