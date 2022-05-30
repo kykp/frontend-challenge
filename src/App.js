@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Gallery } from "./components/Gallery";
 import { Preloader } from "./components/Preloader";
+import { Redirect } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Favourites } from "./components/Favourites";
 
@@ -51,7 +52,9 @@ function App() {
               <Gallery data={data} addCats={addCats} deleteCats={deleteCats} />
             }
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />}>
+            <Redirect to="/" />
+          </Route>
           <Route
             path="/favourites"
             element={
