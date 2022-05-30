@@ -46,11 +46,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/frontend-challenge">
-            <Redirect to="/" />
-          </Route>
           <Route
             index
+            path="/frontend-challenge"
             element={
               <Gallery data={data} addCats={addCats} deleteCats={deleteCats} />
             }
