@@ -3,46 +3,31 @@ import heart from "../images/heart.png"
 import heartFilled from "../images/fullHeart.png"
 
 export const GalleryItem = ({data,
-   addCats = Function.prototype,
-    deleteCats = Function.prototype
+   addCats = Function.prototype
   }) => {
-  const {url} = data;
+  const {url, like} = data;
 
   const [hoveredOnBlock, setHovered] = useState(false)
   const [hoveredHeart, setHoverdHeart] = useState(false);
-  const [clickedHeart, setClickedHeart] = useState(false);
 
 
   const showLikeOnHovered = () => {
-    if (clickedHeart) {
-      return "card-like_active"
-    }
-    else if (hoveredHeart || hoveredOnBlock) {
+    if (hoveredHeart || hoveredOnBlock) {
       return "card-like_active"
     } else {
       return "card-like"
     }
   }
 
-  const onHandleClick = (clickedHeart) =>{
-    if (clickedHeart) {
-      deleteCats(data)
-      setClickedHeart(false)
-    } else {
-      addCats(data)
-      setClickedHeart(true)
-    }
-  }
+
 
   const picturesLikeVisions = () => {
-    if (hoveredHeart || clickedHeart) {
+    if (hoveredHeart || like) {
       return heartFilled
     } else {
       return heart
     }
   }
-
-  
 
   return (
     <div 
@@ -56,7 +41,7 @@ export const GalleryItem = ({data,
     <img 
       onMouseEnter={() => setHoverdHeart(true)} 
       onMouseLeave={() => setHoverdHeart(false)} 
-      onClick={() => onHandleClick(clickedHeart)} 
+      onClick={() => addCats(data)} 
       src={picturesLikeVisions()} 
       alt="heart" 
       className={showLikeOnHovered()}

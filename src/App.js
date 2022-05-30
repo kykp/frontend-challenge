@@ -13,15 +13,34 @@ function App() {
   const [favorite, setFavorite] = useState([]);
 
   const addCats = (object) => {
-    if (!favorite.some((alreadyFavorite) => alreadyFavorite.id === object.id)) {
-      setFavorite([...favorite, object]);
-    }
+    const newArray = data.map((element) => {
+      if (object.id === element.id && !element.like) {
+        element.like = true;
+        setFavorite([...favorite, element]);
+        return element;
+      } else if (object.id === element.id && element.like) {
+        element.like = false;
+        let newFavorite = favorite.filter((e) => e.id !== element.id);
+
+        setFavorite(newFavorite);
+        return element;
+      }
+      return element;
+    });
+    setData(newArray);
   };
 
-  const deleteCats = (object) => {
-    const newArray = favorite.filter((items) => items.id !== object.id);
-    setFavorite(newArray);
-  };
+  console.log(favorite);
+  // const addCats = (object) => {
+  //   if (!favorite.some((alreadyFavorite) => alreadyFavorite.id === object.id)) {
+  //     setFavorite([...favorite, object]);
+  //   }
+  // };
+
+  // const deleteCats = (object) => {
+  //   const newArray = favorite.filter((items) => items.id !== object.id);
+  //   setFavorite(newArray);
+  // };
 
   useEffect(() => {
     async function fetchMyAPI() {
@@ -31,7 +50,11 @@ function App() {
         },
       });
       response = await response.json();
-      setData(response);
+      const newData = response.map((e) => {
+        e.like = false;
+        return e;
+      });
+      setData(newData);
     }
 
     fetchMyAPI();
@@ -49,7 +72,7 @@ function App() {
                 <Gallery
                   data={data}
                   addCats={addCats}
-                  deleteCats={deleteCats}
+                  // deleteCats={deleteCats}
                 />
               ) : (
                 <Preloader />
@@ -62,7 +85,7 @@ function App() {
               <Favourites
                 favorite={favorite}
                 addCats={addCats}
-                deleteCats={deleteCats}
+                // deleteCats={deleteCats}
               />
             }
           />

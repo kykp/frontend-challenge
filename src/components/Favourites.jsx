@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import { FavouritesItem } from './FavouritesItem'
+import { GalleryItem } from './GalleryItem'
 
-export const Favourites = ({favorite, deleteCats = Function.prototype}) => {
+export const Favourites = ({favorite, addCats = Function.prototype}) => {
 
   const[noOfElements, setNoOfElements] = useState(15);
  
@@ -13,10 +13,10 @@ export const Favourites = ({favorite, deleteCats = Function.prototype}) => {
   return (<>
     <section className='gallery'>
        {slice.map(data => (
-          <FavouritesItem 
+          <GalleryItem 
               key={data.id} 
               data={data} 
-              deleteCats={deleteCats}
+              addCats={addCats}
               />))} 
     </section>
     <div className="loadMore"  onClick={() => loadMore()}>... загружаем еще котиков ...</div>
