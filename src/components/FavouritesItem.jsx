@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import heart from "../images/heart.png"
 import heartFilled from "../images/fullHeart.png"
 
-export const GalleryItem = ({data,
+export const FavouritesItem = ({data,
    addCats = Function.prototype,
     deleteCats = Function.prototype
   }) => {
@@ -10,8 +10,7 @@ export const GalleryItem = ({data,
 
   const [hoveredOnBlock, setHovered] = useState(false)
   const [hoveredHeart, setHoverdHeart] = useState(false);
-  const [clickedHeart, setClickedHeart] = useState(false);
-
+  const [clickedHeart, setClickedHeart] = useState(true);
 
   const showLikeOnHovered = () => {
     if (clickedHeart) {

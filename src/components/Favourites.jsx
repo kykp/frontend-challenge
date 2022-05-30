@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { GalleryItem } from './GalleryItem'
+import { FavouritesItem } from './FavouritesItem'
 
 export const Favourites = ({favorite, deleteCats = Function.prototype}) => {
 
@@ -13,7 +13,7 @@ export const Favourites = ({favorite, deleteCats = Function.prototype}) => {
   return (<>
     <section className='gallery'>
        {slice.map(data => (
-          <GalleryItem 
+          <FavouritesItem 
               key={data.id} 
               data={data} 
               deleteCats={deleteCats}
