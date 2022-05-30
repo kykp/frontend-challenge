@@ -6,8 +6,9 @@ export const GalleryItem = ({data,
    addCats = Function.prototype,
     deleteCats = Function.prototype
   }) => {
-  const {url, favorite} = data;
+  const {url} = data;
 
+  
   const [hoveredOnBlock, setHovered] = useState(false)
   const [hoveredHeart, setHoverdHeart] = useState(false);
   const [clickedHeart, setClickedHeart] = useState(false);
@@ -25,7 +26,7 @@ export const GalleryItem = ({data,
   }
 
   const heartStatuseIMG = () => {
-    if (clickedHeart || hoveredHeart || favorite) {
+    if (clickedHeart || hoveredHeart) {
       return heartFilled
     } else {
       return heart

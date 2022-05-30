@@ -14,12 +14,10 @@ function App() {
 
   const addCats = (object) => {
     if (!favorite.some((alreadyFavorite) => alreadyFavorite.id === object.id)) {
-      const newObject = object;
-      newObject.favorite = true;
-      setFavorite([...favorite, newObject]);
+      setFavorite([...favorite, object]);
     }
   };
-  console.log(favorite);
+
   const deleteCats = (object) => {
     const newArray = favorite.filter((items) => items.id !== object.id);
     setFavorite(newArray);
