@@ -46,15 +46,16 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="/frontend-challenge">
+            <Redirect to="/" />
+          </Route>
           <Route
             index
             element={
               <Gallery data={data} addCats={addCats} deleteCats={deleteCats} />
             }
           />
-          <Route path="*" element={<NotFound />}>
-            <Redirect to="/" />
-          </Route>
+          <Route path="*" element={<NotFound />}></Route>
           <Route
             path="/favourites"
             element={
