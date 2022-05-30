@@ -10,7 +10,7 @@ export const FavouritesItem = ({data,
 
   const [hoveredOnBlock, setHovered] = useState(false)
   const [hoveredHeart, setHoverdHeart] = useState(false);
-  const [clickedHeart, setClickedHeart] = useState(true);
+  const [clickedHeart, setClickedHeart] = useState(falsegi);
 
   const showLikeOnHovered = () => {
     if (clickedHeart) {
