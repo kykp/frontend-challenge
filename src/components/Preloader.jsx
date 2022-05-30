@@ -1,6 +1,10 @@
+import "./preloader.css"
+
 export const Preloader = () => {
   return (
-    <div className="preloader"> LOADING..
+<div className="preloader">
+  <span className="preloader-span">..Loading...</span>
+ 
 </div>
   )
 }

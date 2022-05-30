@@ -21,7 +21,6 @@ a:hover, a:visited, a:link, a:active
 
 body {
   margin: 0;
-  text-align: center;
   min-height: 100vh;
 }
 
@@ -37,8 +36,9 @@ body {
 
 .header {
   display: flex;
+  margin: 0 auto;
   align-items: center;
-  width: 1440px;
+  max-width: 1440px;
   min-height: 64px;
   background: #2196F3;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
@@ -62,14 +62,34 @@ body {
   background: #1E88E5;
   color: #fff!important;
 }
+.container {
+  width: 100%;
+  max-width: 1500px;
+}
 
 .gallery {
   margin-top: 36px;
   margin-left: 62px;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, 225px);
   gap: 48px;
 }
+
+@media (max-width: 350px) {
+.header__nav{
+  margin:0;
+  width: 100%;
+  padding: 15px;
+}
+.header__nav_ul{
+  justify-content: space-between;
+}
+.gallery{
+  margin-left:0;
+}
+}
+
 
 .card {  
   max-width: 225px;
@@ -109,11 +129,7 @@ body {
   margin-bottom: 31px;
   cursor: pointer;
 }
-.preloader{
-  margin-top: 30%;
-  height: 50vh;
-  font-size: 100px;
-}
+
 
 .card-like_active {
   position: absolute;

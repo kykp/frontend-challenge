@@ -38,14 +38,22 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App container">
       <BrowserRouter>
         <Header />
         <Routes>
           <Route
             path="/frontend-challenge"
             element={
-              <Gallery data={data} addCats={addCats} deleteCats={deleteCats} />
+              data.length ? (
+                <Gallery
+                  data={data}
+                  addCats={addCats}
+                  deleteCats={deleteCats}
+                />
+              ) : (
+                <Preloader />
+              )
             }
           />
           <Route
